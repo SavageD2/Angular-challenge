@@ -35,8 +35,8 @@
     </div>
 
     <div *ngIf="contact.errors">
-        <span *ngIf="contact.errors['required']">Email requis</span>
-        <span *ngIf="contact.errors['email']">Bien tenté, mais il faut un email valide</span>
+        <span *ngIf="submitted && contact.errors?.['required']">Email requis</span>
+        <span *ngIf="submitted && contact.errors?.['email']">Bien tenté, mais il faut un email valide</span>
     </div>
 
     <div>
