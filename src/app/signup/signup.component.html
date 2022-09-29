@@ -13,9 +13,9 @@
     </div>
     <!--Message d'erreur en cas de non saisi du nom et prénom et en cas de non respect du nombre de caractère min et max-->
     <div *ngIf="firstName.errors">
-        <span *ngIf="firstName.errors?.['required']">Le Prénom est requis</span>
-        <span *ngIf="firstName.errors?.['minlength']">Moins de 5 caractères ? ça ne va pas être possible</span>
-        <span *ngIf="lastName.errors?.['maxlength']">Moins de 30 caractères please </span>
+        <span *ngIf="submitted && firstName.errors?.['required']">Le Prénom est requis</span>
+        <span *ngIf="submitted && firstName.errors?.['minlength']">Moins de 5 caractères ? ça ne va pas être possible</span>
+        <span *ngIf="submitted && firstName.errors?.['maxlength']">Moins de 30 caractères please </span>
     </div>
 
     <div>
@@ -24,9 +24,9 @@
     </div>
 
     <div *ngIf="firstName.errors">
-        <span *ngIf="lastName.errors?.['required']">Le Nom est requis</span>
-        <span *ngIf="lastName.errors?.['minlength']">Moins de 5 caractères encore !? toujours pas possible</span>
-        <span *ngIf="lastName.errors?.['maxlength']">Trop long</span>
+        <span *ngIf="submitted && lastName.errors?.['required']">Le Nom est requis</span>
+        <span *ngIf="submitted && lastName.errors?.['minlength']">Moins de 5 caractères encore !? toujours pas possible</span>
+        <span *ngIf="submitted && lastName.errors?.['maxlength']">Trop long</span>
     </div>
 
     <div>
