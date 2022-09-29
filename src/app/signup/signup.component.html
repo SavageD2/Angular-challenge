@@ -1,0 +1,29 @@
+<p>signup works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    
+    <div>
+        Form submitted ? {{myForm.submitted}}
+        Form valid ? {{myForm.valid}}
+        Form invalid ? {{myForm.valid}}
+      </div>
+
+    <div>
+        <label for="first-name">Firstname: </label>
+        <input type="text" name="first-name" placeholder="firstname" [(ngModel)]="signUpForm.firstName" #firstName="ngModel" required minlength="5" maxlength="30">
+    </div>
+    
+    <div>
+        <label for="last-name">Lastname: </label>
+        <input type="text" name="last-name" placeholder="lastname" [(ngModel)]="signUpForm.lastName" #lastName="ngModel" required minlength="5" maxlength="30">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" name="email" placeholder="email" [(ngModel)]="signUpForm.email" #email="ngModel" required email>
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="text" name="password" placeholder="*********" [(ngModel)]="signUpForm.password" #email="ngModel" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
