@@ -1,29 +1,51 @@
 <p>signup works!</p>
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     
-    <div>
+    <!-- <div>
         Form submitted ? {{myForm.submitted}}
         Form valid ? {{myForm.valid}}
         Form invalid ? {{myForm.valid}}
-      </div>
+      </div> -->
 
     <div>
         <label for="first-name">Firstname: </label>
         <input type="text" name="first-name" placeholder="firstname" [(ngModel)]="signUpForm.firstName" #firstName="ngModel" required minlength="5" maxlength="30">
     </div>
-    
+    <!--Message d'erreur en cas de non saisi du nom et prénom et en cas de non respect du nombre de caractère min et max-->
+    <div *ngIf="firstName.errors">
+        <span *ngIf="firstName.errors?.['required']">Le Prénom est requis</span>
+        <span *ngIf="firstName.errors?.['minlength']">Moins de 5 caractères ? ça ne va pas être possible</span>
+        <span *ngIf="lastName.errors?.['maxlength']">Moins de 30 caractères please </span>
+    </div>
+
     <div>
         <label for="last-name">Lastname: </label>
         <input type="text" name="last-name" placeholder="lastname" [(ngModel)]="signUpForm.lastName" #lastName="ngModel" required minlength="5" maxlength="30">
     </div>
-    <div>
-        <label for="email">Email: </label>
-        <input type="text" name="email" placeholder="email" [(ngModel)]="signUpForm.email" #email="ngModel" required email>
-    </div>
-    <div>
-        <label for="password">Password: </label>
-        <input type="text" name="password" placeholder="*********" [(ngModel)]="signUpForm.password" #email="ngModel" required>
+
+    <div *ngIf="firstName.errors">
+        <span *ngIf="lastName.errors?.['required']">Le Nom est requis</span>
+        <span *ngIf="lastName.errors?.['minlength']">Moins de 5 caractères encore !? toujours pas possible</span>
+        <span *ngIf="lastName.errors?.['maxlength']">Trop long</span>
     </div>
 
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" name="email" placeholder="email" [(ngModel)]="signUpForm.contact" #contact="ngModel" required email>
+    </div>
+
+    <div *ngIf="contact.errors">
+        <span *ngIf="contact.errors['required']">Email requis</span>
+        <span *ngIf="contact.errors['email']">Bien tenté, mais il faut un email valide</span>
+    </div>
+
+    <div>
+        <label for="password">Password: </label>
+        <input type="text" name="password" placeholder="*********" [(ngModel)]="signUpForm.password" #password="ngModel" required password>
+    </div>
+    <div *ngIf="password.errors">
+        <span *ngIf="password.errors['required']">Mot de passe requis</span>
+        <span *ngIf="password.errors['password']">Pas assez secure</span>
+    </div>
     <button type="submit">Submit</button>
 </form>

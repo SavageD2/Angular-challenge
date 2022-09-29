@@ -9,7 +9,9 @@ import { FormDetail } from '../models/form-detail.model';
 })
 export class SignupComponent implements OnInit {
 
-  signUpForm: FormDetail = new FormDetail('','','','');
+  signUpForm: FormDetail = new FormDetail('','', '','');
+  
+  submitted: boolean = false
 
   constructor() { }
 
@@ -17,6 +19,7 @@ export class SignupComponent implements OnInit {
   }
   
   onSubmit(myForm: NgForm){
-    console.log("c'est ok ^^");
+    console.log(this.signUpForm);
+    this.submitted = true;
   }
 }
