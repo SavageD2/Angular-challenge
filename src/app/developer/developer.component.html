@@ -1,0 +1,36 @@
+<p>developer works!</p>
+<h2>My Dev</h2>
+<div>
+    <strong>
+        <p> {{developer.lastName}}</p>
+        <p> {{developer.firstName}} </p>
+        <p> {{developer.age}} </p>
+        <p> {{developer.gender}} </p>
+        <p> {{developer.bio}} </p>
+    </strong>
+</div>
+
+<!--J'éxecute une boucle dans mon tableau d'ogjet qui a été initialisé dans DeveloperComponent
+la boucle *ngFor demande à une variable que j'ai nommé skill de représenter chaque object de 
+developer.skills-->
+<app-skill
+    *ngFor="let skill of developer.skills" 
+    [skillChild]="skill">
+</app-skill>
+
+<!-- <label for="lastname">Nom: </label>
+<input type="text" name="lastname" [(ngModel)]="developer.lastName">
+
+<label for="firstname">Prénom: </label>
+<input type="text" name="firstname" [(ngModel)]="developer.firstName">
+
+<label for="age">Age: </label>
+<input type="number" name="age" [(ngModel)]="developer.age">
+
+<label for="gender">Genre: </label>
+<input type="text" name="gender" [(ngModel)]="developer.gender">
+
+<label for="bio">Bio: </label>
+<input type="text" name="bio" [(ngModel)]="developer.bio">
+
+<label for="skill"></label> -->

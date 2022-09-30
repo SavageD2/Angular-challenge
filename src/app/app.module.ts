@@ -7,7 +7,9 @@ import { BlockComponent } from './block/block.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {FormsModule} from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
-import { SignupComponent } from './signup/signup.component'
+import { SignupComponent } from './signup/signup.component';
+import { DeveloperComponent } from './developer/developer.component';
+import { SkillComponent } from './skill/skill.component'
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { SignupComponent } from './signup/signup.component'
     BlockComponent,
     UserProfileComponent,
     DirectivesComponent,
-    SignupComponent
+    SignupComponent,
+    DeveloperComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
